@@ -1,23 +1,17 @@
 'use strict'
 
-module.exports = async function (fastify, opts) {
-  fastify.post('/', async function (request, reply) {
-    return 'this is an example'
-  })
-}
-
-
-const { createOne } = require('../../model')
-
 module.exports = async function (app, opts) {
   app.post('/', async function (request, reply) {
-    const result = await createOne(this.mongo, request.body)
+    //const result = await createOne(this.mongo, request.body)
 
     reply
       .code(201)
-      .header('Content-Type', 'application/json; charset=utf-8')
+      .header('content-type', 'application/json')
       .send({
-        id: result.insertedId.toString()
+        id: 1234,
+        ok: 1
+        //id:result.id,
+        //ok:result.ok
       })
   })
 }
