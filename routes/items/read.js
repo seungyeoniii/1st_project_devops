@@ -34,16 +34,6 @@ module.exports = async function (app, opts) {
           pid: 1234,
           name: "item1",
           price: 3000
-          },
-          {
-          pid: 1235,
-          name: "item2",
-          price: 4000
-          },
-          {
-          pid: 1236,
-          name: "item3",
-          price: 5000
           })
       })
     }

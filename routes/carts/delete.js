@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = async function (app, opts) {
-  app.delete('/', async function (request, reply) {
+  app.delete('/:cid', async function (request, reply) {
     //const result = await deleteOne(this.mongo, request.params.id)
 
     reply
