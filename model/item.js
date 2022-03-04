@@ -6,6 +6,14 @@ module.exports = {
     const result = await collection.find({}).toArray()
     return result
   },
+
+  readOne: async (mongo, id) => {
+    const collection = mongo.db.collection(process.env.COLLECTION_ITEM)
+    const result = await collection.findOne({
+      _id: ObjectId(id)
+    })
+    return result
+  }
   /*
   createOne: async (mongo, body) => {
     const collection = mongo.db.collection(process.env.COLLECTION_CART)
