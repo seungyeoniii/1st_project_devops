@@ -5,7 +5,7 @@ module.exports = {
     const collection = mongo.db.collection(process.env.COLLECTION_NAME)
     const result = await collection.find({}).toArray()
     return result
-  },
+  }/*,
   readOne: async (mongo, id) => {
     const collection = mongo.db.collection(process.env.COLLECTION_NAME)
     const result = await collection.findOne({
@@ -37,4 +37,5 @@ module.exports = {
     })
     return result
   }
+  */
 }
