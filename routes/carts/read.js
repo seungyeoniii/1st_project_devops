@@ -1,6 +1,6 @@
 'use strict'
 
-const { readAll, readOne } = require('../../model')
+const { readAll, readOne } = require('../../model/cart.js')
 
 module.exports = async function (app, opts) {
   app.get('/', async function (request, reply) {
