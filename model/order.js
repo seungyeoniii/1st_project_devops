@@ -51,15 +51,15 @@ module.exports = {
 
   updateStatus: async (mongo, id, body) => {
     const collection = mongo.db.collection(process.env.COLLECTION_CART)
-    console.log('id',id)
     const resultCartAll = await collection.find({}).toArray()
-    console.log('resultCartAll',resultCartAll)
-    const filterCart = resultCartAll.filter(item => item.cid === id)
-    console.log('filterCart',filterCart)
+    // console.log('resultCartAll',resultCartAll)
+    const filterCart = resultCartAll.filter(item => item.cid === Number(id))
+    // console.log('filterCart',filterCart)
     let result = []
     for(let i = 0; i < filterCart.length; i++){
+      console.log('filterCart: ', filterCart[i].id)
       result.push(await collection.findOneAndUpdate({
-        _id: ObjectId(filterCart[i])
+        _id: ObjectId(filterCart[i]._id)
       }, {
         $set: body
       }))

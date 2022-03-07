@@ -5,7 +5,7 @@ const { createOne, updateStatus } = require('../../model/order.js')
 module.exports = async function (app, opts) {
   app.post('/', async function (request, reply) {
     
-    const cart_id = request.query.cart_id
+    const cart_id = Number(request.query.cart_id)
     const newBody = {
       cart_id: cart_id,
       time : new Date()
@@ -15,7 +15,7 @@ module.exports = async function (app, opts) {
     const newStatus = await updateStatus(this.mongo, cart_id, {status: true})
     // console.log("------result-----\n", result)
     // console.log("-----newStatus-----\n", newStatus)
-    
+
     if(!result){
       reply
       .code(404)
@@ -26,7 +26,7 @@ module.exports = async function (app, opts) {
       reply
       .code(201)
       .header('content-type', 'application/json; charset=utf-8')
-      .send(newStatus)
+      .send({newStatus: newStatus, status:'OK'})
     }
     
   })
