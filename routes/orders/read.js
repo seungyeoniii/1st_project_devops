@@ -9,8 +9,8 @@ module.exports = async function (app, opts) {
       .send(result)
   })
 
-  app.get('/:oid', async function (request, reply) {
-    const result = await readOne(this.mongo, request.params.oid)
+  app.get('/:_id', async function (request, reply) {
+    const result = await readOne(this.mongo, request.params._id)
     reply
       .code(200)
       .header('content-type', 'application/json')

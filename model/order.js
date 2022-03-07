@@ -17,7 +17,7 @@ module.exports = {
   readOne: async (mongo, id) => {
     const collection = mongo.db.collection(process.env.COLLECTION_ORDER)
     const result = await collection.findOne({
-      oid: Int32(id)
+      _id: ObjectId(id)
     })
     return result
   },
@@ -42,7 +42,7 @@ module.exports = {
     const collection = mongo.db.collection(process.env.COLLECTION_ORDER)
 
     const result = await collection.findOneAndUpdate({
-      _id: ObjectId(id) //cid: Int32(id)
+      _id: ObjectId(id)
     }, {
       $set: body
     })
