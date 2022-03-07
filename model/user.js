@@ -15,24 +15,11 @@ module.exports = {
     return result
   },
   
-  
-  updateOne: async (mongo, id, body) => {
+  readAll: async (mongo) => {
     const collection = mongo.db.collection(process.env.COLLECTION_USER)
-
-    const result = await collection.findOneAndUpdate({
-      _id: ObjectId(id)
-    }, {
-      $set: body
-    })
-    return result
-  },
-  deleteOne: async (mongo, id) => {
-    const collection = mongo.db.collection(process.env.COLLECTION_USER)
-
-    const result = await collection.findOneAndDelete({
-      _id: ObjectId(id)
-    })
+    const result = await collection.find({}).toArray()
     return result
   }
+
   
 }
