@@ -8,7 +8,7 @@ module.exports = async function (app, opts) {
     let email = request.query.email
     let name = request.query.name
     let count = 0
-    if(email == "" || name == "" || count == ""){
+    if(email == "" || name == ""){
       reply
         .code(400)
         .header('content-type', 'application/json')
@@ -32,7 +32,10 @@ module.exports = async function (app, opts) {
         reply
           .code(201)
           .header('content-type', 'application/json')
-          .send(result)
+          .send({
+            email:email,
+            name:name
+          })
       }
       else{
         reply
