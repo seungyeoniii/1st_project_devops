@@ -6,6 +6,6 @@
 |장바구니</br>상품 삭제|DELETE|/carts/:cid||\{</br>_id: savd8s9a7v8</br>cid: 10</br>item_id: baivjdsivj915</br>user_id: 29unvu1892u</br>count: 3</br>status: false</br>\}|
 |주문하기|POST,PUT|/orders?cart_id|\{</br>cart_id=11</br>\}|\{</br>_id:vasdvsdv121 </br>cid:11 </br>item_id:asdfasdf121 </br>user_id:asdfasdfsadf121 </br>count:3 </br>status:true</br>\}|
 |장바구니</br>확인|GET|/carts?user_id=||\{</br>_id: savd8s9a7v8</br>cid: 10</br>item_id: baivjdsivj915</br>user_id: 29unvu1892u</br>count: 3</br>status: false</br>\}|
-|주문 정보</br>조회|GET|/orders/:oid||\{</br>oid: 12</br>\}|
+|주문 정보</br>조회|GET|/orders/:oid||\{</br> "_id": savd8s9a7v8,</br>"oid": 123123, </br>"cid": 10, </br>"time": 2022-03-07 23:30:00</br>\}|
 |User 생성|POST|/users?email=&name=|\{</br>email=abcd</br>name=e-reum</br>\}|\{</br>email=abcd</br>name=e-reum</br>\}|
-|사용자</br>주문 취소|PUT|/orders/:user_id|\{</br>id: 1234,</br>count: 2,</br>uid: 123,</br>time:”X”</br>\}|\{</br>name: “ab”,</br>user_id: “aaaa”,</br>time: “X”</br>\}|
+|사용자</br>주문 취소|PUT|/orders/:user_id|\{</br>id: 1234,</br>count: 2,</br>uid: 123,</br>time:”X”</br>\}|\{</br>"_id": savd8s9a7v8,</br>"cart_id": 10,</br>"time": 2022-03-07 23:30:00</br>\}| 
