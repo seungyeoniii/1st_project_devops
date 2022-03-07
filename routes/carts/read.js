@@ -15,12 +15,13 @@ module.exports = async function (app, opts) {
 
     const user_id = request.query.user_id // query -> ?user_id=
     if(user_id === ""){
-      const result_A = await readAll(this.mongo)
+      //const result_A = await readAll(this.mongo)
       reply
       .code(200)
       .header('content-type', 'application/json')
       .send(
-        result_A
+        //result_A
+        "NO DATA"
       )
     }
     else{
