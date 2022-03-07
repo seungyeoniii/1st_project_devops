@@ -8,39 +8,39 @@ module.exports = async function (app, opts) {
     let email = request.query.email
     let name = request.query.name
     let count = 0
-    for (let i=0; i < compare.length; i++){
-      console.log(compare[i])
-      if(compare[i].user_email == email){
-        count++
-      }
-    }
-    if(count == 0){
-      const body = {
-        "user_email" : email,
-        "user_name" : name
-      }
-
-      const result = await createOne(this.mongo, body)
-      
+    if(email == "" || name == "" || count == ""){
       reply
-        .code(201)
+        .code(400)
         .header('content-type', 'application/json')
-        .send(result)
+        .send("NO DATA")
     }
     else{
-      reply
-        .code(404)
-        .header('content-type', 'application/json')
-        .send("already used")
-    }
+      for (let i=0; i < compare.length; i++){
+        console.log(compare[i])
+        if(compare[i].user_email == email){
+          count++
+        }
+      }
+      if(count == 0){
+        const body = {
+          "user_email" : email,
+          "user_name" : name
+        }
 
-    reply
-      .code(201)
-      .header('content-type', 'application/json')
-      .send({
-     //   id: result.insertedId.toString()
+        const result = await createOne(this.mongo, body)
       
-      })
+        reply
+          .code(201)
+          .header('content-type', 'application/json')
+          .send(result)
+      }
+      else{
+        reply
+          .code(404)
+          .header('content-type', 'application/json')
+          .send("already used")
+      }
+    }
   })
 }
 
