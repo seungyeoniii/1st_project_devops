@@ -1,3 +1,6 @@
+
+# 쇼핑몰 사이트를 구현하는 백엔드 프로젝트 입니다.
+
 # Getting Started with Fastify-CLI [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
 ## 이프로젝트는  Fastify-CLI를 기반으로 작성되었습니다.
 
@@ -10,6 +13,11 @@
 3. model - 엔드포인트당 데이터 연결이 설정되어 있습니다.
 4. test - 본프로그램에서 디버깅 과정은 생략되었습니다.
 
+## 엔드포이별 설명
+1. items- 상품에 대한 데이터가 설정되어있습니다.
+2. carts- 장바구니에 대한 데이터가 설정되어 있습니다.
+3. orders- 주문내역에 대한 데이터가 설정되어 있습니다.
+4. users- 사용자 정보에 대한 데이터가 설정되어 있습니다.
 
 
 ## Fastify CLI  작업 순서
