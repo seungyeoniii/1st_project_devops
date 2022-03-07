@@ -11,7 +11,7 @@ module.exports = async function (app, opts) {
         .code(204)
         .header('content-type', 'application/json')
         .send(
-          result
+          result.value
         )
       }
     else{
@@ -20,7 +20,7 @@ module.exports = async function (app, opts) {
         .code(200)
         .header('content-type', 'application/json')
         .send(
-          result
+          result.value
         )
       }
   })

@@ -22,8 +22,7 @@ module.exports = async function (app, opts) {
     }
     else{
       const result_A = await readAll(this.mongo)
-      const user_point = result_A.filter(item => item.user_id === user_id)
-      console.log("asfasfaf : ", user_point[0])
+      const user_point = result_A.filter(item => item.user_id == user_id)
       let cart_check
       if(user_point[0] != undefined){
         cart_check = user_point.filter(item => item.status === false)
@@ -43,7 +42,11 @@ module.exports = async function (app, opts) {
         reply
         .code(201)
         .header('content-type', 'application/json')
-        .send(result)
+        .send({
+          cart_id:cart_id,
+          item_id:item_id,
+          count:count
+        })
       }
       else{
         for(let i = 0; i < result_A.length; i++){
@@ -62,7 +65,11 @@ module.exports = async function (app, opts) {
         reply
         .code(201)
         .header('content-type', 'application/json')
-        .send(result)
+        .send({
+          cart_id:cart_id,
+          item_id:item_id,
+          count:count
+        })
       }
     } 
   })
