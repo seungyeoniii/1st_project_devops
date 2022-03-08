@@ -8,4 +8,4 @@
 |장바구니</br>확인|GET|/carts?user_id=||\{</br>_id: savd8s9a7v8</br>cid: 10</br>item_id: baivjdsivj915</br>user_id: 29unvu1892u</br>count: 3</br>status: false</br>\}|
 |주문 정보</br>조회|GET|/orders/:oid||\{</br> "_id": savd8s9a7v8,</br>"oid": 123123, </br>"cid": 10, </br>"time": 2022-03-07 23:30:00</br>\}|
 |User 생성|POST|/users?email=&name=|\{</br>email=abcd</br>name=e-reum</br>\}|\{</br>email=abcd</br>name=e-reum</br>\}|
-|사용자</br>주문 취소|PUT|/orders/:_id|\{</br>id: 1234,</br>count: 2,</br>uid: 123,</br>time:”X”</br>\}|\{</br>"_id": savd8s9a7v8,</br>"cart_id": 10,</br>"time": 2022-03-07 23:30:00</br>\}| 
+|사용자</br>주문 취소|PUT|/orders/:_id||\{</br>"_id": savd8s9a7v8,</br>"oid":1001</br>"cart_id": 10,</br>"time": 9999-01-31 08:00:00</br>\}| 
