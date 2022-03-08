@@ -17,6 +17,14 @@ module.exports = {
   readOne: async (mongo, id) => {
     const collection = mongo.db.collection(process.env.COLLECTION_ORDER)
     const result = await collection.findOne({
+      oid: Number(id)
+    })
+    return result
+  },
+
+  readOneId: async (mongo, id) => {
+    const collection = mongo.db.collection(process.env.COLLECTION_ORDER)
+    const result = await collection.findOne({
       _id: ObjectId(id)
     })
     return result

@@ -10,16 +10,19 @@ module.exports = async function (app, opts) {
   })
 
   app.get('/:oid', async function (request, reply) {
-    const result = await readOne(this.mongo, request.params._id)
+    // console.log(request.params.oid)
+    const result = await readOne(this.mongo, request.params.oid)
+    console.log(result)
     reply
       .code(200)
       .header('content-type', 'application/json')
-      .send({
-        "_id": result._id,
+      .send(
+        {"_id": result._id,
         "oid": result.oid,
         "cart_id": result.cid,
-        "time": result.time
-    })
+        "time": result.time}  
+        )
+        
   })
 
 }
